@@ -12,8 +12,11 @@ public class TelaJogo extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
+        // Caminho da imagem do fundo
+        String caminhoFundo = "C:\\Users\\zinho\\OneDrive\\Documentos\\portifolio_arte\\POO_ARTES\\tela_fundo.png";
+
         // Adicionar o fundo
-        JLabel fundo = new JLabel(new ImageIcon("assets/fundo.png"));
+        JLabel fundo = new JLabel(new ImageIcon(caminhoFundo));
         fundo.setBounds(0, 0, 800, 600); // Fundo cobre toda a tela
         add(fundo);
 
