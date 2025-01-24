@@ -1,6 +1,7 @@
 package Telas;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,14 +24,17 @@ public class TelaInicial extends JFrame {
         fundo.setBounds(0, 0, 800, 600); // Fundo cobre toda a tela
         add(fundo);
 
-        // Adicionar o logo do jogo
+        // Adicionar o logo do jogo, garantindo que ficará por cima do fundo
         JLabel logo = new JLabel(new ImageIcon(caminhoLogo));
-        logo.setBounds(200, 50, 400, 150); // Centralizado no topo
+        logo.setBounds(200, 50, 400, 150); // Ajuste do tamanho do logo
         fundo.add(logo);
 
         // Adicionar o botão Start
         JButton botaoStart = new JButton("Start");
         botaoStart.setBounds(300, 450, 200, 50); // Centralizado na parte inferior
+        botaoStart.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 20)); // Aumenta o tamanho da fonte do botão
+        botaoStart.setForeground(Color.WHITE); // Cor da letra (opcional, para destaque)
+        botaoStart.setBackground(new Color(0, 102, 204)); // Cor de fundo do botão
         fundo.add(botaoStart);
 
         // Ação do botão
@@ -54,7 +58,7 @@ public class TelaInicial extends JFrame {
 
         // Adiciona o novo fundo (sem logo e botão)
         JLabel novoFundo = new JLabel(new ImageIcon(caminhoFundo));
-        novoFundo.setBounds(0, 0, 800, 600);
+        novoFundo.setBounds(0, 0, 800, 600); // Ajuste para cobrir toda a tela
         add(novoFundo);
 
         revalidate(); // Atualiza a interface gráfica
