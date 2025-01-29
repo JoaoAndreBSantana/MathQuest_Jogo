@@ -1,30 +1,30 @@
-
 import javax.swing.*;
 import java.awt.*;
 
 public class TelaInicial extends JFrame {
 
     public TelaInicial() {
+        // Carrega a imagem de fundo
+        ImageIcon fundoIcon = new ImageIcon(getClass().getResource("/tela_fundo.png"));
+
         // Configurações da janela
         setTitle("MathQuest");
-        setSize(800, 600);
+        setSize(fundoIcon.getIconWidth(), fundoIcon.getIconHeight()); // Ajusta o tamanho da janela para o tamanho da imagem
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null); // Layout manual
         setLocationRelativeTo(null); // Centraliza a janela
-
-        // Carrega as imagens
-        ImageIcon fundoIcon = new ImageIcon(getClass().getResource("/tela_fundo.png"));
-        ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo_tela_.png"));
 
         // Adiciona o fundo
         JLabel fundo = new JLabel(fundoIcon);
-        fundo.setBounds(0, 0, 800, 600);
         add(fundo);
+
+        // Carrega o logo
+        ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo_tela_.png"));
 
         // Adiciona o logo
         JLabel logo = new JLabel(logoIcon);
         logo.setBounds(200, 50, 400, 200); // Posiciona o logo
-        fundo.add(logo); // Adiciona o logo sobre o fundo
+        fundo.add(logo);
 
         // Botão "Iniciar Jogo"
         JButton botaoIniciar = new JButton("Iniciar Jogo");
