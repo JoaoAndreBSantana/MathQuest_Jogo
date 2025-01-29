@@ -16,19 +16,22 @@ public class TelaInicial extends JFrame {
 
         // Adiciona o fundo
         JLabel fundo = new JLabel(fundoIcon);
+        fundo.setLayout(null); // Layout manual para o fundo
         add(fundo);
 
         // Carrega o logo
         ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo_tela_.png"));
 
-        // Adiciona o logo
+        // Centraliza o logo
         JLabel logo = new JLabel(logoIcon);
-        logo.setBounds(200, 50, 400, 200); // Posiciona o logo
+        int logoX = (fundoIcon.getIconWidth() - logoIcon.getIconWidth()) / 2; // Centraliza o logo
+        logo.setBounds(logoX, 50, logoIcon.getIconWidth(), logoIcon.getIconHeight());
         fundo.add(logo);
 
         // Botão "Iniciar Jogo"
         JButton botaoIniciar = new JButton("Iniciar Jogo");
-        botaoIniciar.setBounds(300, 400, 200, 50); // Posiciona o botão
+        int botaoX = (fundoIcon.getIconWidth() - 200) / 2; // Centraliza o botão
+        botaoIniciar.setBounds(botaoX, 400, 200, 50);
         botaoIniciar.addActionListener(e -> {
             // Fecha a tela inicial e abre a tela do jogo (por enquanto, só fecha)
             dispose();
