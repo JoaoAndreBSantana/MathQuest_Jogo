@@ -4,43 +4,46 @@ import java.awt.*;
 public class TelaInicial extends JFrame {
 
     public TelaInicial() {
-        // Carrega a imagem de fundo
+
         ImageIcon fundoIcon = new ImageIcon(getClass().getResource("/tela_fundo.png"));
 
-        // Configurações da janela
         setTitle("MathQuest");
-        setSize(fundoIcon.getIconWidth(), fundoIcon.getIconHeight()); // Ajusta o tamanho da janela para o tamanho da imagem
+        setSize(fundoIcon.getIconWidth(), fundoIcon.getIconHeight());
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Centraliza a janela
+        setLocationRelativeTo(null);
 
-        // Adiciona o fundo
         JLabel fundo = new JLabel(fundoIcon);
-        fundo.setLayout(null); // Layout manual para o fundo
+        fundo.setLayout(null);
         add(fundo);
 
-        // Carrega o logo
         ImageIcon logoIcon = new ImageIcon(getClass().getResource("/logo_tela_.png"));
 
-        // Centraliza o logo
         JLabel logo = new JLabel(logoIcon);
         int logoX = (fundoIcon.getIconWidth() - logoIcon.getIconWidth()) / 2; // Centraliza o logo
         logo.setBounds(logoX, 50, logoIcon.getIconWidth(), logoIcon.getIconHeight());
         fundo.add(logo);
 
-        // Botão "Iniciar Jogo"
         JButton botaoIniciar = new JButton("Iniciar Jogo");
-        int botaoX = (fundoIcon.getIconWidth() - 200) / 2; // Centraliza o botão
+
+        botaoIniciar.setBackground(new Color(30, 100, 200)); // Azul mais claro
+        botaoIniciar.setForeground(new Color(255, 215, 0)); // Dourado
+        botaoIniciar.setFont(new Font("Arial", Font.BOLD, 20));
+        botaoIniciar.setBorder(BorderFactory.createLineBorder(new Color(255, 215, 0), 3)); // Borda dourada
+        botaoIniciar.setFocusPainted(false);
+
+        int botaoX = (fundoIcon.getIconWidth() - 200) / 2;
         botaoIniciar.setBounds(botaoX, 400, 200, 50);
+
         botaoIniciar.addActionListener(e -> {
-            // Fecha a tela inicial e abre a tela do jogo (por enquanto, só fecha)
             dispose();
+            new TelaJogo();
         });
-        fundo.add(botaoIniciar); // Adiciona o botão sobre o fundo
+
+        fundo.add(botaoIniciar);
     }
 
     public static void main(String[] args) {
-        // Executa a tela inicial
         SwingUtilities.invokeLater(() -> {
             new TelaInicial().setVisible(true);
         });
